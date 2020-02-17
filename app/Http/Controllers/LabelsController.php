@@ -46,7 +46,7 @@ class LabelsController extends Controller
                 return view('label.print' ,['custom_datos' => $custom_datos, 'tipo'=>$tipo ]);
                 
                   }
-                //  catch (\Exception $e) {
+            //  catch (\Exception $e) {
                 //     return back()->with('error','Valida los datos nuevamente!');
             
                 // }
