@@ -71,6 +71,22 @@ class LabelsController extends Controller
     
         }
         
+    public function invoice(Request $request) 
+        {
+            $fields = $request->all();
+            // dd($fields);
+            $count = count($request->input('checar'));
+            $datos =$request->input('checar');
+            $view =  \View::make('invoice', compact('datos','fields'))->render();
+            $pdf = \App::make('dompdf.wrapper');
+            $pdf->loadHTML($view,);
+            
+    
+            // $pdf->setPaper([0,0,99,224],'landscape');
+           
+            return $pdf->stream('invoice');
+           
+        }
 
     public function update(ProfileRequest $request)
     {

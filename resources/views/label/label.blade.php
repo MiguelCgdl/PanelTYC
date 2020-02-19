@@ -8,17 +8,11 @@
     ])   
 
     <div class="container-fluid mt--7">
-        <div class="row">
-            <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-            </div>
             <div class="col-xl-8 order-xl-1">
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
-                        <div class="row align-items-center">
-                            <!-- <h3 class="col-12 mb-0">{{ __('Edit Profile') }}</h3>  -->
-                        </div>
-                    </div>
-                    <div class="card-body">
+                        <div class="row align-items-center">     
+                            <div class="card-body">
                         <form method="post" action="{{ route('label.label') }}" autocomplete="off">
                             @csrf
                             @method('put')
@@ -53,13 +47,15 @@
                                         <input type="radio" class="custom-control-input" id="customRadio2" name="checar" value="entrada">
                                         <label class="custom-control-label" for="customRadio2">Entrada</label>
                                     </div>
-
-                                </div>
+                                </div>    
 
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Buscar') }}</button>
                                 </div>
                             </div>
+                         </form>   
+                         </div>
+                        </div> 
                     </div>
                 </div>
             </div>
