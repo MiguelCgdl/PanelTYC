@@ -137,5 +137,5 @@
       
 <!-- termina nuevo diseño tabla --> 
        
-        @include('layouts.footers.auth')
+        <!-- @include('layouts.footers.auth') -->
 @endsection 
