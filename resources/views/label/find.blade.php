@@ -8,23 +8,19 @@
     ])   
 
     <form method="GET" action="{{ route('label.print') }}" class="was-validated" >
-   <?php 
-
-    $i=0;
-
-    ?>
-
-
-    <?php 
-    if ($custom_datos){
-    ?>
-      @foreach ($custom_datos as $dato)
-      <?php
-       $fact = array("P00");
-      $string = $dato->CardCode;
-      $rest1 = str_replace($fact, "", $string);  // devuelve "abcde"
-      ?>        
-      @endforeach
+                  <?php 
+                    $i=0;
+                  ?>
+                  <?php 
+                    if ($custom_datos){
+                    ?>
+                     @foreach ($custom_datos as $dato)
+                      <?php
+                       $fact = array("P00");
+                      $string = $dato->CardCode;
+                $rest1 = str_replace($fact, "", $string);  // devuelve "abcde"
+                      ?>        
+                      @endforeach
             <div class="position-ref container form-group" style=" width: 50%;">  
                                             <table class="table table-dark table-striped  table-responsive" style ="border: solid 3px #123;text-align: center;">
                              
