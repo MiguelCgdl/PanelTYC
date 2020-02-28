@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Barryvdh\DomPDF\ServiceProvider;
+
 
 class LabelsController extends Controller
 {
@@ -71,23 +74,22 @@ class LabelsController extends Controller
     
         }
         
-    public function invoice(Request $request) 
+        public function invoice(Request $request) 
         {
             $fields = $request->all();
-            // dd($fields);
+            //dd($fields);
             $count = count($request->input('checar'));
             $datos =$request->input('checar');
-            $view =  \View::make('invoice', compact('datos','fields'))->render();
+            $view =  \View::make('impresion.invoice', compact('datos','fields'))->render();
             $pdf = \App::make('dompdf.wrapper');
             $pdf->loadHTML($view,);
             
     
             // $pdf->setPaper([0,0,99,224],'landscape');
            
-            return $pdf->stream('invoice');
+            return $pdf->stream('impresion.invoice');
            
         }
-
     public function update(ProfileRequest $request)
     {
         auth()->user()->update($request->all());

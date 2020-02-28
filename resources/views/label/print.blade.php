@@ -13,6 +13,7 @@
           <div class="card-header bg-white border-0">
             <div class=" align-items-center">
               <div class="card-body">
+              <form method="get" action="{{ route('impresion.invoice') }}" class="was-validated" target="_blank" >
                             <!-- Metodo Php para la impresion de los datos -->
                               <?php 
                               $i=0;
@@ -101,7 +102,7 @@
                                 <td style="text-align: left;">{{$dato->dscription}}</td>
                                 <td style="text-align: left;">{{$dato->ItmsGrpNam}}</td>
                                 <td style="text-align: center">{{number_format($dato->quantity),10}}</td>
-                                <td ><input type='number' name='upc{{$i}}' value='1' requiered style="width : 40px;"></
+                                <td ><input type='number' name='upc{{$i}}' value='1' requiered style="width : 40px;"></td>
                                 <input name= 'code{{$i}}' value= '{{$rest}}' type='text' hidden="true" >
                                 <input name= 'name{{$i}}' value= '{{$dato->dscription}}' type='text' hidden="true" >
                                 <input name= 'group{{$i}}' value= '{{$dato->ItmsGrpNam}}' type='text' hidden="true" >
@@ -120,8 +121,8 @@
                     </div>
                     <div class="position-ref container form-group" style=" width: 40%;">
                       <div class="flex-center container">        
-                          <button href= "{{url('pdf')}}" type="submit" class="btn btn-primary" type="submit">Imprimir </button>  
-            
+                          <button href="{{ route('impresion.invoice') }}"class="btn btn-primary" type="submit">Print </button> 
+                          <button href="{{ route('home') }}" class="btn btn-primary" type="button">Button</button>
                             <input type="checkbox" id="selectall";> Seleccionar todos
                                 <script type="text/javascript">
                                     $("#selectall").on("click", function() {  
@@ -134,6 +135,7 @@
                                       echo "no hay datos"; 
                                     }
                                   ?>
+                </form>
                         </div>
                       </div>      
                 </div>
